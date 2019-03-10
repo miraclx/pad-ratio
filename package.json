@@ -1,6 +1,6 @@
 {
   "name": "pad-ratio",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Pad or trim an array to sum up to a maximum value",
   "main": "lib/index.js",
   "types": "typings/index.d.ts",
