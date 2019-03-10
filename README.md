@@ -33,6 +33,7 @@ import padRatio from 'pad-ratio';
 
 ``` javascript
 padRatio([20, 30]); // [ 20, 30, 50 ]
+padRatio([20, 30], 100); // [ 20, 30, 50 ]
 ```
 
 ## API
@@ -40,7 +41,7 @@ padRatio([20, 30]); // [ 20, 30, 50 ]
 ### padRatio(array[, maximum[, options])
 
 * `array`: &lt;[HybridInput](#hybridinput)&gt;
-* `maximum`: &lt;[number][]&gt;
+* `maximum`: &lt;[number][]&gt; **Default**: 100
 * `options`: &lt;[PadOptions](#padoptions)&gt;
 
 Parse and pad `array` appending or trimming it till it's contents sum up to `maximum`. Operative controls go within the `options` object.
