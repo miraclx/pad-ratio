@@ -9,7 +9,7 @@
     "build": "babel lib -d dist",
     "preversion": "npm test",
     "version": "npm run build",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push github && git push gitlab"
   },
   "engines": {
     "node": ">=1"
