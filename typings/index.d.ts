@@ -1,17 +1,17 @@
 type HybridRatio = string | number | Array<number>;
 
 interface PadOptions {
-  blot: boolean;
-  fixed: number;
-  append: boolean;
+  blot?: boolean;
+  fixed?: number;
+  append?: boolean;
 }
 
 /**
  * Parse a ratio to a maximum
  * @param ratio The ratio to be parsed and padded. If a string, can divided by either of `,`, `:`, `;`, `|`
- * @param max The maximum value to be summed up to
- * @param options.fixed Number of max digits to appear after the decimal point (`.`)
- * @param options.append Whether or not to append the remainant into the array or add it to the last value
+ * @param max The maximum value to be summed up to. **Default**: `100`
+ * @param options.fixed Number of max digits to appear after the decimal point (`.`). **Default**: `2`
+ * @param options.append Whether or not to append the remainant into the array or add it to the last value. **Default**: `true`
  * @returns Array summing up to <max>
  * @example
  *  >> // String
@@ -48,4 +48,6 @@ interface PadOptions {
  *  >>> padRatio([-5, 8, 33, 0, 8, -44, 33], 100, {blot: false})
  *  |>| [ 0, 8, 33, 0, 8, 0, 33, 18 ]
  */
-function padRatio(ratio: HybridRatio, max: number, options: PadOptions): number[];
+declare function padRatio(ratio: HybridRatio, max?: number, options?: PadOptions): number[];
+
+export = padRatio;
