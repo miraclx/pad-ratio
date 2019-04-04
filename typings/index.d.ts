@@ -1,9 +1,11 @@
-type HybridRatio = string | number | Array<number>;
+declare namespace padRatio {
+  type HybridRatio = string | number | Array<number>;
 
-interface PadOptions {
-  blot?: boolean;
-  fixed?: number;
-  append?: boolean;
+  interface PadOptions {
+    blot?: boolean;
+    fixed?: number;
+    append?: boolean;
+  }
 }
 
 /**
@@ -48,6 +50,6 @@ interface PadOptions {
  *  >>> padRatio([-5, 8, 33, 0, 8, -44, 33], 100, {blot: false})
  *  |>| [ 0, 8, 33, 0, 8, 0, 33, 18 ]
  */
-declare function padRatio(ratio: HybridRatio, max?: number, options?: PadOptions): number[];
+declare function padRatio(ratio: padRatio.HybridRatio, max?: number, options?: padRatio.PadOptions): number[];
 
 export = padRatio;
