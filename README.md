@@ -34,46 +34,32 @@ import padRatio from 'pad-ratio';
 ``` javascript
 padRatio([20, 30]); // [ 20, 30, 50 ]
 padRatio([20, 30], 100); // [ 20, 30, 50 ]
+padRatio([45.642, 15.027], 120); // [ 45.642, 15.027, 59.330999999999996 ]
+padRatio([45.642, 15.027], 120, false); // [ 45.642, 74.35799999999999 ]
+padRatio('5:2:8', 20); // [ 5, 2, 8, 5 ]
+padRatio('5:2:8', 20, false); // [ 5, 2, 13 ]
 ```
 
 ## API
 
-### padRatio(array[, maximum[, options])
+### padRatio(array[, maximum[, append])
 
 * `array`: &lt;[HybridInput](#hybridinput)&gt;
-* `maximum`: &lt;[number][]&gt; **Default**: 100
-* `options`: &lt;[PadOptions](#padoptions)&gt;
+* `maximum`: &lt;[number][]&gt; **Default**: `100`
+* `append`: &lt;[boolean][]&gt; **Default**: `true`
 
-Parse and pad `array` appending or trimming it till it's contents sum up to `maximum`. Operative controls go within the `options` object.
+Parse and pad `array` appending or trimming it till it's contents sum up to `maximum`.
+The `append` argument determined whether to push the remnant to the array or to increment the final value with it.
 
 ### <a id='hybridinput'></a> HybridInput: [string][]|[number][]|[number][][]
+
 If `HybridInput` is a string, the value separators can be any of `,`, `:`, `;`, `|`.
 
-### <a id='padoptions'></a> PadOptions: [Object][object]
-
-* `blot`: &lt;[boolean][]&gt; Whether or not to blot out indexes of zero values within the result array. **Default**: `false`
-
 ``` javascript
-padRatio([-5, 8, 33, 0, 8, -44, 33], 100, {blot: true})
-// [ 8, 33, 8, 33, 18 ]
-padRatio([-5, 8, 33, 0, 8, -44, 33], 100, {blot: false})
-// [ 0, 8, 33, 0, 8, 0, 33, 18 ]
-```
-
-* `fixed`: &lt;[number][]&gt; Maximum number of digits after any decimal point within the array. **Default**: `20`
-
-``` javascript
-padRatio([3.54645, 28.83898755], 100, {fixed: 5})
-// [ 3.54645, 28.83899, 67.61456 ]
-```
-
-* `append`: &lt;[boolean][]&gt; Whether or not to append the top up value to array or to increment the delta to the last index of the array. **Default**: `true`
-
-``` javascript
-padRatio([20, 30, 40], 100, {append: true})
+padRatio([20, 30, 40], 100)
 // [ 20, 30, 40, 10 ]
 
-padRatio([20, 30, 40], 100, {append: false})
+padRatio([20, 30, 40], 100, false)
 // [ 20, 30, 50 ]
 ```
 
@@ -121,6 +107,5 @@ npm test
 [downloads-image]: https://badgen.net/npm/dm/pad-ratio
 
 [number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type
-[object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type
 [boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type
