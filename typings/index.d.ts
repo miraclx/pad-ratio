@@ -1,19 +1,10 @@
-declare namespace padRatio {
-  type HybridRatio = string | number | Array<number>;
-
-  interface PadOptions {
-    blot?: boolean;
-    fixed?: number;
-    append?: boolean;
-  }
-}
+type HybridRatio = string | number | Array<number>;
 
 /**
  * Parse a ratio to a maximum
  * @param ratio The ratio to be parsed and padded. If a string, can divided by either of `,`, `:`, `;`, `|`
  * @param max The maximum value to be summed up to. **Default**: `100`
- * @param options.fixed Number of max digits to appear after the decimal point (`.`). **Default**: `2`
- * @param options.append Whether or not to append the remainant into the array or add it to the last value. **Default**: `true`
+ * @param append Whether or not to append the remainant into the array or add it to the last value. **Default**: `true`
  * @returns Array summing up to <max>
  * @example
  *  >> // String
@@ -35,21 +26,11 @@ declare namespace padRatio {
  *  |>| [ 64, 128, 256, 64 ]
  * 
  *  >> // Unappend the complement, increment or trim the last element rather
- *  >>> padRatio([20, 30, 40], 100, {append: true})
+ *  >>> padRatio([20, 30, 40], 100)
  *  |>| [ 20, 30, 40, 10 ]
- *  >>> padRatio([20, 30, 40], 100, {append: false})
+ *  >>> padRatio([20, 30, 40], 100, false)
  *  |>| [ 20, 30, 50 ]
- * 
- *  >> // Control the fixed point
- *  >>> padRatio([3.54645, 28.83898755], 100, {fixed: 5})
- *  |>| [ 3.54645, 28.83899, 67.61456 ]
- * 
- *  >> // Blot out falsey values
- *  >>> padRatio([-5, 8, 33, 0, 8, -44, 33], 100, {blot: true})
- *  |>| [ 8, 33, 8, 33, 18 ]
- *  >>> padRatio([-5, 8, 33, 0, 8, -44, 33], 100, {blot: false})
- *  |>| [ 0, 8, 33, 0, 8, 0, 33, 18 ]
  */
-declare function padRatio(ratio: padRatio.HybridRatio, max?: number, options?: padRatio.PadOptions): number[];
+declare function padRatio(ratio: padRatio.HybridRatio, max?: number, append?: boolean): number[];
 
 export = padRatio;
