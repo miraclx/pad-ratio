@@ -11,6 +11,6 @@ describe('Normal execution', () => {
   });
 
   test('Unappending of topup value', () => {
-    expect(padRatio([9, 30, 65, 44], 100, false)).toEqual([9, 30, 61]);
+    expect(padRatio([9, 30, 65, 44], 100, false)).toEqual([9, 30, 65, -4]);
   });
 });
